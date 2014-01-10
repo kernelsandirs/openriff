@@ -7,20 +7,28 @@ openRiffApp.controller('PlayCtrl', ['$scope', function($scope) {
     };
 
     conn.onmessage = function(e) {
-        track = JSON.parse(e.data);
-        if ($scope.sound) {
-            $scope.sound.stop();
-            $scope.sound = null;
-            $scope.playing = null;
-        }
-        $scope.playing = track;
-        SC.stream("/tracks/" + track.id, function(sound) {
-            if ($scope.sound == null) {
-                sound.play();
+        msg = JSON.parse(e.data);
+        if(msg.kind == 'track') {
+            track = msg
+            if ($scope.sound) {
+                $scope.sound.stop();
+                $scope.sound = null;
+                $scope.playing = null;
             }
-            $scope.sound = sound;
-            $scope.$apply();
-        });
+            $scope.playing = track;
+            SC.stream("/tracks/" + track.id, function(sound) {
+                if ($scope.sound == null) {
+                    sound.play();
+                }
+                $scope.sound = sound;
+                $scope.$apply();
+            });
+        } else if(msg.kind == 'msg') {
+            //can use to send messages like chat?
+            console.log(track.message);
+        } else {
+            console.log('what is this message? ' + track.kind );
+        }
     };
 
     $scope.search_results = null;
@@ -37,6 +45,7 @@ openRiffApp.controller('PlayCtrl', ['$scope', function($scope) {
     $scope.select = function(track) {
         console.log(track);
         conn.send(JSON.stringify(track));
+        conn.send('{"kind":"msg", "message":"hello"}');
         if ($scope.sound) {
             $scope.sound.stop();
             $scope.sound = null;
