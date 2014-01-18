@@ -24,6 +24,8 @@
         "symfony/assetic-bundle": "~2.3",
         "doctrine/doctrine-fixtures-bundle": "~2.1@dev",
         "doctrine/data-fixtures": "~1.0@dev",
+	"doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
         "mopa/bootstrap-bundle": "~2.3@dev",
         "components/bootstrap": "~3.0",
         "components/angular.js": "*",
