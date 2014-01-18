@@ -27,6 +27,10 @@ openRiffApp.controller('PlayCtrl', ['$scope', function($scope) {
         $scope.sound.toggleMute();
     };
 
+    $scope.setVolume = function(level) {
+        $scope.sound.setVolume(level);
+    };
+
     $scope.voteDown = function(track) {
         console.log('downvote');
         console.log(track);
@@ -43,7 +47,11 @@ openRiffApp.controller('PlayCtrl', ['$scope', function($scope) {
     };
 
     $scope.playNext = function() {
+        var isMuted;
+        var volume;
         if ($scope.sound) {
+            isMuted = $scope.sound.muted;
+            volume  = $scope.sound.volume;
             $scope.sound.stop();
         }
         if ($scope.queue.length > 0) {
@@ -60,7 +68,13 @@ openRiffApp.controller('PlayCtrl', ['$scope', function($scope) {
                     }
                 });
                 $scope.sound = sound;
+                if(isMuted == 1){
+                    $scope.sound.mute();
+                }
+                $scope.sound.setVolume(volume);
             });
+
         }
+
     }
 }]);
