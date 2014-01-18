@@ -26,7 +26,8 @@
         "doctrine/data-fixtures": "~1.0@dev",
         "mopa/bootstrap-bundle": "~2.3@dev",
         "components/bootstrap": "~3.0",
-        "components/angular.js": "*"
+        "components/angular.js": "*",
+        "hwi/oauth-bundle": "*"
     },
     "require-dev": {
         "behat/behat": "~3@dev",

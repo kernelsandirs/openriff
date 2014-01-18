@@ -1,3 +1,10 @@
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+soundcloud_login:
+    pattern: /login/check-soundcloud
+
 openriff:
     resource: "@App/Resources/config/routing.yml"
     type:     "rad_convention"

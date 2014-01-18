@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Knp\RadBundle\KnpRadBundle(),
             new Openriff\App(),
         );

@@ -1,9 +1,9 @@
 parameters:
-    database_driver:   pdo_sqlite
-    database_host:     ~
+    database_driver:   pdo_pgsql
+    database_host:     localhost
     database_port:     ~
-    database_name:     ~
-    database_user:     ~
+    database_name:     openriff
+    database_user:     postgres
     database_password: ~
 
     mailer_transport:  ~
@@ -15,3 +15,4 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     soundcloud.client_id: ~
+    soundcloud.secret:    ~

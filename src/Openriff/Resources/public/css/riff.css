@@ -19,6 +19,12 @@ body {
 .openriff-nav .navbar-brand {
   color: #fff;
 }
+.openriff-nav .navbar-text {
+  color: #fff;
+}
+.openriff-nav .navbar-image {
+  height: 50px;
+}
 .openriff-nav .navbar-nav > li > a {
   padding-top: 9px;
   padding-bottom: 9px;

@@ -51,6 +51,20 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
+              {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                  <li>
+                      <img class="navbar-image" src="{{ app.user.profilePictureUrl }}" />
+                  </li>
+                  <li>
+                      <span class="navbar-text">{{ app.user.username }} </span>
+                  </li>
+              {% else %}
+                <li>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'soundcloud'}) }}">
+                        <img src="//connect.soundcloud.com/2/btn-connect-l.png" />
+                    </a>
+                </li>
+              {% endif %}
               <li>
                   <a href="https://soundcloud.com">
                       <img src="//developers.soundcloud.com/assets/powered_by_white.png" style="padding-right: 9px;" />

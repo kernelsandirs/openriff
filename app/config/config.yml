@@ -64,3 +64,11 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+hwi_oauth:
+    firewall_name: app
+    connect:
+        account_connector: openriff_security.user.provider.entity
+    resource_owners:
+        soundcloud:
+            service: openriff_oauth.resource_owner.soundcloud

@@ -1,1 +1,22 @@
 # http://symfony.com/doc/current/components/dependency_injection/index.html
+
+parameters:
+    openriff_oauth.resource_owner.soundcloud.class: Openriff\OAuth\ResourceOwner\SoundcloudResourceOwner
+    openriff_security.user.provider.entity.class: Openriff\Security\Core\User\EntityUserProvider
+
+services:
+    openriff_oauth.resource_owner.soundcloud:
+        class: %openriff_oauth.resource_owner.soundcloud.class%
+        arguments:
+            - @hwi_oauth.http_client
+            - @security.http_utils
+            - { client_id: "%soundcloud.client_id%", client_secret: "%soundcloud.secret%" }
+            - soundcloud
+            - @hwi_oauth.storage.session
+
+    openriff_security.user.provider.entity:
+        class: %openriff_security.user.provider.entity.class%
+        arguments:
+            - @doctrine
+            - Openriff\Entity\User
+            - { soundcloud: "soundcloudId" }
